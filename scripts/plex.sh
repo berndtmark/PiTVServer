@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../settings.conf
+source ./settings.conf
 
 echo "creating directory..."
 mkdir $PLEX_CONFIG && sudo chmod +x -R $PLEX_CONFIG

@@ -13,6 +13,11 @@ $ chmod +x ./init.sh
 $ /home/pi/init/init.sh
 ```
 
+## URLs
+- Sickbeard (http://YourIP:8081)
+- Sabnzb (http://YourIP:8080)
+- Plex (http://YourIP:32400/web/index.html) 
+
 ## Additional
 ### Download notifications
 https://github.com/berndtmark/Yamahiro

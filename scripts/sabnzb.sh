@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../settings.conf
+source ./settings.conf
 
 echo "creating directory..."
 mkdir $SABNZB_CONFIG && sudo chmod +x -R $SABNZB_CONFIG

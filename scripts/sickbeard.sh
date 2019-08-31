@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../settings.conf
+source ./settings.conf
 
 echo "creating directory..."
 mkdir $SICKBEARD_CONFIG && sudo chmod +x -R $SICKBEARD_CONFIG

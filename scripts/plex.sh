@@ -18,9 +18,9 @@ sudo docker create \
   --restart unless-stopped \
   linuxserver/plex
 
-echo "init plex containers..."
-sudo docker start plex
-sudo docker stop plex
+# echo "init plex containers..."
+# sudo docker start plex
+# sudo docker stop plex
 
 # echo "setting up plex config..."
 # sudo cp -R $INIT/Plex/* "$PLEX_CONFIG/Library/Application Support/Plex Media Server"

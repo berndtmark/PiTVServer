@@ -18,13 +18,12 @@ sudo docker create \
   --restart unless-stopped \
   linuxserver/sabnzbd
 
-echo "init sabnzbd..."
-sudo docker start sabnzbd
-sudo docker stop sabnzbd
+# echo "init sabnzbd..."
+# sudo docker start sabnzbd
+# sudo docker stop sabnzbd
 
 # echo "setting up sabnzbd config..."
 # sudo cp -R $INIT/Sabnzb/* $SABNZB_CONFIG
-# sudo chmod -R +x $SABNZB_CONFIG/autoProcessTV
 
 echo "starting container..."
 sudo docker start sabnzbd

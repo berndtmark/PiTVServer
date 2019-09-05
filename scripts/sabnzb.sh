@@ -2,7 +2,7 @@
 source ./settings.conf
 
 echo "creating directory..."
-mkdir $SABNZB_CONFIG && sudo chmod +x -R $SABNZB_CONFIG
+mkdir $SABNZB_CONFIG && sudo chmod a+rwx -R $SABNZB_CONFIG
 
 echo "creating sabnzb..."
 # id -> gets PUID & PGID

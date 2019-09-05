@@ -2,7 +2,7 @@
 source ./settings.conf
 
 echo "creating directory..."
-mkdir $SICKBEARD_CONFIG && sudo chmod +x -R $SICKBEARD_CONFIG
+mkdir $SICKBEARD_CONFIG && sudo chmod a+rwx -R $SICKBEARD_CONFIG
 
 echo "installing additional packages..."
 sudo apt-get update

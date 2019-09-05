@@ -2,7 +2,7 @@
 source ./settings.conf
 
 echo "creating directory..."
-mkdir $PLEX_CONFIG && sudo chmod +x -R $PLEX_CONFIG
+mkdir $PLEX_CONFIG && sudo chmod a+rwx -R $PLEX_CONFIG
 
 echo "creating plex..."
 # id -> gets PUID & PGID

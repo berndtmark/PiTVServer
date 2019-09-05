@@ -16,14 +16,16 @@ sudo docker create \
   -v $MEDIA:/downloads \
   -v $TEMP:/incomplete-downloads \
   --restart unless-stopped \
+  --net=host \
   linuxserver/sabnzbd
 
-# echo "init sabnzbd..."
-# sudo docker start sabnzbd
-# sudo docker stop sabnzbd
+echo "init sabnzbd..."
+sudo docker start sabnzbd
+sudo docker stop sabnzbd
 
-# echo "setting up sabnzbd config..."
-# sudo cp -R $INIT/Sabnzb/* $SABNZB_CONFIG
+echo "setting up sabnzbd config..."
+sudo cp -R $INIT/Sabnzb/* $SABNZB_CONFIG
+sudo chmod -R a+rwx $SABNZB_CONFIG/scripts
 
 echo "starting container..."
 sudo docker start sabnzbd

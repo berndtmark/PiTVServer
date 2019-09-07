@@ -14,7 +14,7 @@ $ /home/pi/init/init.sh
 ```
 
 ## URLs
-- Sickbeard (http://YourIP:8081)
+- Sonarr (http://YourIP:8989)
 - Sabnzb (http://YourIP:8080)
 - Plex (http://YourIP:32400/web/index.html) 
 

@@ -22,3 +22,9 @@ sed -i 's/Cheetah.Version\[0\] !=/Cheetah\.Version\[0\] </g' SickBeard.py
 echo "starting sickbeard..."
 cd $SICKBEARD_CONFIG
 pm2 start SickBeard.py --name SickBeard --log-date-format 'YYYY-MM-DD HH:mm'
+
+echo "pm2 to autostart..."
+# pm2 startup
+## this will change - use `pm2 startup` to get script
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
+pm2 save

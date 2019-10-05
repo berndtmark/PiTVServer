@@ -1,8 +1,8 @@
 #!/bin/bash
 source ./settings.conf
 
-if [ ! "$(sudo docker ps -q -f name=plex)" ]; then
-    echo "Docker container already running...updating"
+if [ "$(sudo docker ps -q -f name=plex)" ]; then
+    echo "Docker container plex already running...updating"
     sudo docker stop plex
     sudo docker rm plex
     sudo docker pull linuxserver/plex

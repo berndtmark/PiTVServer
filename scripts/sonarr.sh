@@ -1,8 +1,8 @@
 #!/bin/bash
 source ./settings.conf
 
-if [ ! "$(sudo docker ps -q -f name=sonarr)" ]; then
-    echo "Docker container already running...updating"
+if [ "$(sudo docker ps -q -f name=sonarr)" ]; then
+    echo "Docker container sonarr already running...updating"
     sudo docker stop sonarr
     sudo docker rm sonarr
     sudo docker pull linuxserver/sonarr:preview

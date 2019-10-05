@@ -1,8 +1,8 @@
 #!/bin/bash
 source ./settings.conf
 
-if [ ! "$(sudo docker ps -q -f name=sabnzbd)" ]; then
-    echo "Docker container already running...updating"
+if [ "$(sudo docker ps -q -f name=sabnzbd)" ]; then
+    echo "Docker container sabnzbd already running...updating"
     sudo docker stop sabnzbd
     sudo docker rm sabnzbd
     sudo docker pull linuxserver/sabnzbd

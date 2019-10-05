@@ -1,8 +1,15 @@
 #!/bin/bash
 source ./settings.conf
 
-echo "creating directory..."
-mkdir $PLEX_CONFIG && sudo chmod a+rwx -R $PLEX_CONFIG
+if [ "$(sudo docker ps -q -f name=plex)" ]; then
+    echo "Docker container plex already running...updating"
+    sudo docker stop plex
+    sudo docker rm plex
+    sudo docker pull linuxserver/plex
+else
+    echo "creating directory..."
+    mkdir $PLEX_CONFIG && sudo chmod a+rwx -R $PLEX_CONFIG
+fi
 
 echo "creating plex..."
 # id -> gets PUID & PGID
@@ -18,12 +25,8 @@ sudo docker create \
   --restart unless-stopped \
   linuxserver/plex
 
-# echo "init plex containers..."
-# sudo docker start plex
-# sudo docker stop plex
-
 # echo "setting up plex config..."
-# sudo cp -R $INIT/Plex/* "$PLEX_CONFIG/Library/Application Support/Plex Media Server"
+# sudo cp -R $INIT/Plex/* $PLEX_CONFIG
 
 echo "starting container..."
 sudo docker start plex

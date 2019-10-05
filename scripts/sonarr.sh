@@ -1,8 +1,15 @@
 #!/bin/bash
 source ./settings.conf
 
-echo "creating directory..."
-mkdir $SONARR_CONFIG && sudo chmod a+rwx -R $SONARR_CONFIG
+if [ "$(sudo docker ps -q -f name=sonarr)" ]; then
+    echo "Docker container sonarr already running...updating"
+    sudo docker stop sonarr
+    sudo docker rm sonarr
+    sudo docker pull linuxserver/sonarr:preview
+else
+    echo "creating directory..."
+    mkdir $SONARR_CONFIG && sudo chmod a+rwx -R $SONARR_CONFIG
+fi
 
 echo "creating sonarr..."
 sudo docker create \
@@ -17,10 +24,6 @@ sudo docker create \
 -v $MEDIA:/downloads \
 --restart unless-stopped \
 linuxserver/sonarr:preview
-
-# echo "init sonarr..."
-# sudo docker start sonarr
-# sudo docker stop sonarr
 
 # echo "setting up sonarr config..."
 # sudo cp -R $INIT/Sonarr/* $SONARR_CONFIG

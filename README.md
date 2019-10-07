@@ -19,9 +19,6 @@ $ /home/pi/init/init.sh
 - Plex (http://YourIP:32400/web/index.html) 
 
 ## Additional
-### Download notifications
-https://github.com/berndtmark/Yamahiro
-
 ### Mounting drive (example)
 ```
 $ mkdir /mnt/PIHDD && sudo chmod +x -R /mnt/PIHDD

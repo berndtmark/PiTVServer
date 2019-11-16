@@ -1,6 +1,8 @@
 # TVServer
-This script will setup 3 applications.
-* Sonarr - Used to fetch .nzb files from your indexer and send them to your download client
+This script will setup 4 applications.
+* Sonarr/Radarr - Used to fetch .nzb files from your indexer and send them to your download client
+    * Sanarr - TV Shows
+    * Radarr - Movies
 * Sabnzb - Your download client. Will receive .nzb files, and fetch the articles from your usenet server
 * Plex - This is where you watch stuff
 
@@ -21,6 +23,7 @@ $ /home/pi/init/init.sh
 
 ## URLs
 - Sonarr (http://YourIP:8989)
+- Radarr (http://YourIP:7878)
 - Sabnzb (http://YourIP:8080)
 - Plex (http://YourIP:32400/web/index.html) 
 

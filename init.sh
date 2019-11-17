@@ -22,3 +22,6 @@ $SCRIPTS/plex.sh
 
 message "Sonarr"
 $SCRIPTS/sonarr.sh
+
+message "Radarr"
+$SCRIPTS/radarr.sh

@@ -5,7 +5,7 @@ if [ "$(sudo docker ps -q -f name=radarr)" ]; then
     echo "Docker container radarr already running...updating"
     sudo docker stop radarr
     sudo docker rm radarr
-    sudo docker pull linuxserver/radarr
+    sudo docker pull linuxserver/radarr:preview
 else
     echo "creating directory..."
     mkdir $RADARR_CONFIG && sudo chmod a+rwx -R $RADARR_CONFIG
@@ -23,7 +23,7 @@ sudo docker create \
 -v $MOVIES:/movies \
 -v $MEDIA:/downloads \
 --restart unless-stopped \
-linuxserver/radarr
+linuxserver/radarr:preview
 
 # echo "setting up radarr config..."
 # sudo cp -R $INIT/Radarr/* $RADARR_CONFIG

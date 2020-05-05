@@ -12,22 +12,22 @@ message() {
     echo "................................................."
 }
 
-sudo chmod +x -R $SCRIPTS
+sudo chmod +x -R ./scripts
 
 message "Global Packages"
-$SCRIPTS/global-packages.sh
+./scripts/global-packages.sh
 
 message "Clean up"
-$SCRIPTS/clean-up.sh
+./scripts/clean-up.sh
 
 message "Sabnzb"
-$SCRIPTS/sabnzb.sh
+./scripts/sabnzb.sh
 
 message "Plex"
-$SCRIPTS/plex.sh
+./scripts/plex.sh
 
 message "Sonarr"
-$SCRIPTS/sonarr.sh
+./scripts/sonarr.sh
 
 message "Radarr"
-$SCRIPTS/radarr.sh
+./scripts/radarr.sh

@@ -17,9 +17,6 @@ sudo chmod +x -R ./scripts
 message "Global Packages"
 ./scripts/global-packages.sh
 
-message "Clean up"
-./scripts/clean-up.sh
-
 message "Sabnzb"
 ./scripts/sabnzb.sh
 
@@ -31,3 +28,6 @@ message "Sonarr"
 
 message "Radarr"
 ./scripts/radarr.sh
+
+message "Clean up"
+./scripts/clean-up.sh

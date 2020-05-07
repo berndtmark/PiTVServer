@@ -1,27 +1,33 @@
 #!/bin/bash
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+cd "$parent_path"
+
 source ./settings.conf
 
 message() {
     echo "................................................."
     echo "................................................."
-    echo "Installing $1"
+    echo "Running Script: $1"
     echo "................................................."
     echo "................................................."
 }
 
-sudo chmod +x -R $SCRIPTS
+sudo chmod +x -R ./scripts
 
 message "Global Packages"
-$SCRIPTS/global-packages.sh
+./scripts/global-packages.sh
 
 message "Sabnzb"
-$SCRIPTS/sabnzb.sh
+./scripts/sabnzb.sh
 
 message "Plex"
-$SCRIPTS/plex.sh
+./scripts/plex.sh
 
 message "Sonarr"
-$SCRIPTS/sonarr.sh
+./scripts/sonarr.sh
 
 message "Radarr"
-$SCRIPTS/radarr.sh
+./scripts/radarr.sh
+
+message "Clean up"
+./scripts/clean-up.sh

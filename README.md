@@ -33,3 +33,9 @@ $ /home/pi/init/init.sh
 $ mkdir /mnt/PIHDD && sudo chmod +x -R /mnt/PIHDD
 $ echo 'LABEL=PIDRIVE1  /mnt/PIHDD            ext4    defaults,noatime  0       0' | sudo tee -a /etc/fstab
 ```
+
+### Setting up auto-update (example)
+Update with a simple cron job. _0 2 * * 1_ is set to run at 2am every Monday, replace with your chosen cron expression.
+```
+$ (crontab -l 2>/dev/null; echo "0 2 * * 1 /home/pi/init/init.sh >> /home/pi/init/log.txt 2>&1") | crontab -
+```

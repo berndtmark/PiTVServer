@@ -35,7 +35,7 @@ $ echo 'LABEL=PIDRIVE1  /mnt/PIHDD            ext4    defaults,noatime  0       
 ```
 
 ### Setting up auto-update (example)
-_0 2 * * 1_ is set to run at 2am every Monday. Replace with your chosen cron expression.
+Update with a simple cron job. _0 2 * * 1_ is set to run at 2am every Monday, replace with your chosen cron expression.
 ```
 $ (crontab -l 2>/dev/null; echo "0 2 * * 1 /home/pi/init/init.sh >> /home/pi/init/log.txt 2>&1") | crontab -
 ```

@@ -12,6 +12,7 @@ message() {
     echo "................................................."
 }
 
+date
 sudo chmod +x -R ./scripts
 
 message "Global Packages"

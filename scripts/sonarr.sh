@@ -23,7 +23,7 @@ sudo docker create \
 -v $TV:/tv \
 -v $MEDIA:/downloads \
 --restart unless-stopped \
-linuxserver/sonarr:preview
+linuxserver/sonarr
 
 # echo "setting up sonarr config..."
 # sudo cp -R $INIT/Sonarr/* $SONARR_CONFIG

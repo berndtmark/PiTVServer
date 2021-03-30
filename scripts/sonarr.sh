@@ -5,7 +5,7 @@ if [ "$(sudo docker ps -q -f name=sonarr)" ]; then
     echo "Docker container sonarr already running...updating"
     sudo docker stop sonarr
     sudo docker rm sonarr
-    sudo docker pull linuxserver/sonarr
+    sudo docker pull linuxserver/sonarr:latest
 else
     echo "creating directory..."
     mkdir $SONARR_CONFIG && sudo chmod a+rwx -R $SONARR_CONFIG
@@ -23,7 +23,7 @@ sudo docker create \
 -v $TV:/tv \
 -v $MEDIA:/downloads \
 --restart unless-stopped \
-linuxserver/sonarr
+linuxserver/sonarr:latest
 
 # echo "setting up sonarr config..."
 # sudo cp -R $INIT/Sonarr/* $SONARR_CONFIG

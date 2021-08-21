@@ -39,3 +39,14 @@ Update with a simple cron job. _0 2 * * 1_ is set to run at 2am every Monday, re
 ```
 $ (crontab -l 2>/dev/null; echo "0 2 * * 1 /home/pi/init/init.sh >> /home/pi/init/log.txt 2>&1") | crontab -
 ```
+
+## Troubleshooting
+### Apps not running due to libseccomp2
+Install library dependency
+```
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC 648ACFD622F3D138
+$ echo "deb http://deb.debian.org/debian buster-backports main" | sudo tee -a /etc/apt/sources.list.d/buster-backports.list
+$ sudo apt update
+$ sudo apt install -t buster-backports libseccomp2
+```
+Restart containers

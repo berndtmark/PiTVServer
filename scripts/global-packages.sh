@@ -15,6 +15,6 @@ echo "installing node..."
 if [ "$(node -v)" ]; then
     echo "Node already installed!"
 else
-    curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
     sudo apt-get install -y nodejs
 fi

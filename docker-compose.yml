@@ -47,11 +47,11 @@ services:
 
   tautulli:
     image: lscr.io/linuxserver/tautulli:${TAUTULLI_TAG}
-    container_name: ${TIMEZONE}
+    container_name: tautulli
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/London
+      - TZ= ${TIMEZONE}
     volumes:
       - ${TAUTULLI_CONFIG}:/config
     ports:

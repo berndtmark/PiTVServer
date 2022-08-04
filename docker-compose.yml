@@ -67,7 +67,7 @@ services:
       - PGID=1000
       - VERSION=docker
     volumes:
-      - ${$PLEX_CONFIG}:/config
+      - ${PLEX_CONFIG}:/config
       - ${TV}:/tv
       - ${MOVIES}:/movies
     restart: unless-stopped

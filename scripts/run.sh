@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../
+cd ..
 
 sudo docker compose pull
 sudo docker compose up -d

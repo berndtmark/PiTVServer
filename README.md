@@ -5,9 +5,10 @@ This script will setup 4 applications.
     * Radarr - Movies
 * Sabnzb - Your download client. Will receive .nzb files, and fetch the articles from your usenet server
 * Plex - This is where you watch stuff
+* Tautulli - Statistics about Plex
 
 ## Script Setup
-Directory locations can to be set in settings.conf
+Directory locations, tag, setting can to be set in .env
 
 ## Start!
 Clone the repository and run _init.sh_. Script can be re-run to upgrade containers (the apps).
@@ -26,6 +27,7 @@ $ /home/pi/init/init.sh
 - Radarr (http://YourIP:7878)
 - Sabnzb (http://YourIP:8080)
 - Plex (http://YourIP:32400/web/index.html) 
+- Tautulli (http://YourIP:8181)
 
 ## Additional
 ### Mounting drive (example)

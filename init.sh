@@ -2,7 +2,7 @@
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 
-source ./settings.conf
+source ./.env
 
 message() {
     echo "................................................."
@@ -18,17 +18,11 @@ sudo chmod +x -R ./scripts
 message "Global Packages"
 ./scripts/global-packages.sh
 
-message "Sabnzb"
-./scripts/sabnzb.sh
+message "Create Directories"
+./scripts/create-directories.sh
 
-message "Plex"
-./scripts/plex.sh
-
-message "Sonarr"
-./scripts/sonarr.sh
-
-message "Radarr"
-./scripts/radarr.sh
+message "Run"
+./scripts/run.sh
 
 message "Clean up"
 ./scripts/clean-up.sh

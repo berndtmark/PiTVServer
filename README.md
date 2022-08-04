@@ -1,5 +1,5 @@
 # TVServer
-This script will setup 4 applications.
+This script will setup 5 applications.
 * Sonarr/Radarr - Used to fetch .nzb files from your indexer and send them to your download client
     * Sanarr - TV Shows
     * Radarr - Movies
@@ -8,7 +8,7 @@ This script will setup 4 applications.
 * Tautulli - Statistics about Plex
 
 ## Script Setup
-Directory locations, tag, setting can to be set in .env
+Directory locations & setting can to be set in .env
 
 ## Start!
 Clone the repository and run _init.sh_. Script can be re-run to upgrade containers (the apps).

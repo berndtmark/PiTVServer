@@ -1,0 +1,73 @@
+version: "2.1"
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:${RADARR_TAG}
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${RADARR_CONFIG}:/config
+      - ${MOVIES}:/movies
+      - ${MEDIA}:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:${SONARR_TAG}
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${SONARR_CONFIG}:/config
+      - ${TV}:/tv
+      - ${MEDIA}:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:${SABNZB_TAG}
+    container_name: sabnzbd
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${SABNZB_CONFIG}:/config
+      - ${MEDIA}:/downloads
+      - ${TEMP}:/incomplete-downloads
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
+  tautulli:
+    image: lscr.io/linuxserver/tautulli:${TAUTULLI_TAG}
+    container_name: tautulli
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ= ${TIMEZONE}
+    volumes:
+      - ${TAUTULLI_CONFIG}:/config
+    ports:
+      - 8181:8181
+    restart: unless-stopped
+
+  plex:
+    image: lscr.io/linuxserver/plex:${PLEX_TAG}
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+    volumes:
+      - ${PLEX_CONFIG}:/config
+      - ${TV}:/tv
+      - ${MOVIES}:/movies
+    restart: unless-stopped

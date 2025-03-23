@@ -41,3 +41,11 @@ else
     echo "creating directory for Tautulli..."
     mkdir $TAUTULLI_CONFIG && sudo chmod a+rwx -R $TAUTULLI_CONFIG
 fi
+
+#Jellyfin
+if [ "$(sudo docker ps -q -f name=jellyfin)" ]; then
+    echo "Jellyfin directory exists"
+else
+    echo "creating directory for Jellyfin..."
+    mkdir $JELLYFIN_CONFIG && sudo chmod a+rwx -R $JELLYFIN_CONFIG
+fi

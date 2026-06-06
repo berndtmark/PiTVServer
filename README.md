@@ -4,9 +4,7 @@ This script will setup 6 applications.
     * Sanarr - TV Shows
     * Radarr - Movies
 * Sabnzb - Your download client. Will receive .nzb files, and fetch the articles from your usenet server
-* Plex - This is where you watch stuff
-* Jellyfin - This is where you watch stuff (another option to Plex - comment out/ignore if you dont need)
-* Tautulli - Statistics about Plex
+* Jellyfin - This is where you watch stuff
 
 ## Script Setup
 Directory locations & setting can to be set in .env
@@ -27,9 +25,7 @@ $ /home/pi/init/init.sh
 - Sonarr (http://YourIP:8989)
 - Radarr (http://YourIP:7878)
 - Sabnzb (http://YourIP:8080)
-- Plex (http://YourIP:32400/web/index.html) 
 - Jellyfin (http://YourIP:8096) 
-- Tautulli (http://YourIP:8181)
 
 ## Additional
 ### Mounting drive (example)

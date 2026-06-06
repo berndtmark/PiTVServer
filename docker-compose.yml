@@ -1,7 +1,13 @@
+networks:
+  media-network:
+    driver: bridge
+
 services:
   radarr:
     image: lscr.io/linuxserver/radarr:${RADARR_TAG}
     container_name: radarr
+    networks:
+      - media-network
     environment:
       - PUID=1000
       - PGID=1000
@@ -17,6 +23,8 @@ services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:${SONARR_TAG}
     container_name: sonarr
+    networks:
+      - media-network
     environment:
       - PUID=1000
       - PGID=1000
@@ -32,6 +40,8 @@ services:
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:${SABNZB_TAG}
     container_name: sabnzbd
+    networks:
+      - media-network
     environment:
       - PUID=1000
       - PGID=1000
@@ -44,36 +54,11 @@ services:
       - 8080:8080
     restart: unless-stopped
 
-  tautulli:
-    image: lscr.io/linuxserver/tautulli:${TAUTULLI_TAG}
-    container_name: tautulli
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TIMEZONE}
-    volumes:
-      - ${TAUTULLI_CONFIG}:/config
-    ports:
-      - 8181:8181
-    restart: unless-stopped
-
-  plex:
-    image: lscr.io/linuxserver/plex:${PLEX_TAG}
-    container_name: plex
-    network_mode: host
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - VERSION=docker
-    volumes:
-      - ${PLEX_CONFIG}:/config
-      - ${TV}:/tv
-      - ${MOVIES}:/movies
-    restart: unless-stopped
-
   jellyfin:
-    image: lscr.io/linuxserver/jellyfin:latest
+    image: lscr.io/linuxserver/jellyfin:${JELLYFIN_TAG}
     container_name: jellyfin
+    networks:
+      - media-network
     environment:
       - PUID=1000
       - PGID=1000

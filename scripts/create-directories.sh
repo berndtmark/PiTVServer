@@ -2,34 +2,22 @@
 
 source ./.env
 
-#Radarr
-if [ "$(sudo docker ps -q -f name=radarr)" ]; then
-    echo "Radarr directory exists"
-else
-    echo "creating directory for Radarr..."
-    mkdir $RADARR_CONFIG && sudo chmod a+rwx -R $RADARR_CONFIG
-fi
+directories=(
+    "$RADARR_CONFIG"
+    "$SABNZB_CONFIG"
+    "$SONARR_CONFIG"
+    "$JELLYFIN_CONFIG"
+)
 
-#Sabnzb
-if [ "$(sudo docker ps -q -f name=sabnzbd)" ]; then
-    echo "Sabnzb directory exists"
-else
-    echo "creating directory for Sabnzb..."
-    mkdir $SABNZB_CONFIG && sudo chmod a+rwx -R $SABNZB_CONFIG
-fi
-
-#Sonarr
-if [ "$(sudo docker ps -q -f name=sonarr)" ]; then
-    echo "Sonarr directory exists"
-else
-    echo "creating directory for Sonarr..."
-    mkdir $SONARR_CONFIG && sudo chmod a+rwx -R $SONARR_CONFIG
-fi
-
-#Jellyfin
-if [ "$(sudo docker ps -q -f name=jellyfin)" ]; then
-    echo "Jellyfin directory exists"
-else
-    echo "creating directory for Jellyfin..."
-    mkdir $JELLYFIN_CONFIG && sudo chmod a+rwx -R $JELLYFIN_CONFIG
-fi
+for dir in "${directories[@]}"; do
+    if [ -n "$dir" ]; then
+        if [ -d "$dir" ]; then
+            echo "Directory $dir already exists."
+        else
+            echo "Creating directory $dir..."
+            mkdir -p "$dir"
+        fi
+        # Ensure permissions are set regardless of if it was just created
+        sudo chmod a+rwx -R "$dir"
+    fi
+done

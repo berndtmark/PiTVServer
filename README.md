@@ -36,6 +36,17 @@ $ mkdir /mnt/PIHDD && sudo chmod +x -R /mnt/PIHDD
 $ echo 'LABEL=PIDRIVE1  /mnt/PIHDD            ext4    defaults,noatime  0       0' | sudo tee -a /etc/fstab
 ```
 
+### Suggested Directory Structure
+A recommended example of a folder setup. Allows for atomic moves (instant file moves, rather than copy+delete) with the correct container setup
+```text
+/mnt/PIHDD/
+└── media/
+    ├── movies/
+    ├── shows/
+    ├── downloads/
+    └── temp/
+```
+
 ### Setting up auto-update (example)
 Update with a simple cron job. _0 2 * * 1_ is set to run at 2am every Monday, replace with your chosen cron expression.
 ```

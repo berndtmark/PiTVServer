@@ -14,8 +14,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${RADARR_CONFIG}:/config
-      - ${MOVIES}:/movies
-      - ${MEDIA}:/downloads
+      - ${ROOT_DATA}:/data
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -31,8 +30,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${SONARR_CONFIG}:/config
-      - ${TV}:/tv
-      - ${MEDIA}:/downloads
+      - ${ROOT_DATA}:/data
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -48,8 +46,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${SABNZB_CONFIG}:/config
-      - ${MEDIA}:/downloads
-      - ${TEMP}:/incomplete-downloads
+      - ${ROOT_DATA}:/data
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -65,8 +62,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${JELLYFIN_CONFIG}:/config
-      - ${TV}:/data/tvshows
-      - ${MOVIES}:/data/movies
+      - ${ROOT_DATA}:/data
     ports:
       - 8096:8096
     restart: unless-stopped
